@@ -1,0 +1,81 @@
+<%- include('partials/_header') %>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Documento
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Apellido
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data) {
+                        for (var i=0; i < data.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= (i+1) %>
+                        </td>
+                        <td>
+                            <%= data[i].documento%>
+                        </td>
+                        <td>
+                            <%= data[i].nombre%>
+                        </td>
+                        <td>
+                            <%= data[i].apellidos%>
+                        </td>
+                        <td>
+                            <a href="/delete-persona/<%= data[i].documento%>" class="btn btn-danger">
+                                Borrar
+                            </a>
+                            <a href="/update-persona/<%= data[i].documento%>" class="btn btn-warning">
+                                Actualizar
+                            </a>
+                        </td>
+                    </tr>
+                    <%  }
+                    } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/insert-persona" method="post">
+                        <div class="form-group ">
+                            <input type="text" name="documento" value="" placeholder="Documento" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nombre" value="" placeholder="Nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellidos" value="" placeholder="Apellido" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">
+                            Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('partials/_footer') %>

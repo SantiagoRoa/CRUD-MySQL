@@ -1,0 +1,51 @@
+<%- include('partials/_header') %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/edit-vehiculo/<%= data.idVehiculo%>" method="post">
+                        <div class="form-group ">
+                            <input type="text" name="idVehiculo" placeholder="ID" value="<%= data.idVehiculo%>"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="tipoVehiculo" placeholder="Tipo Vehículo" value="<%= data.tipoVehiculo%>"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="placa" placeholder="Placa" value="<%= data.placa%>"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="marca" placeholder="Marca" value="<%= data.marca%>"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="modelo" placeholder="Modelo" value="<%= data.modelo%>"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="año" placeholder="Año" value="<%= data.año%>"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="uso" placeholder="Uso" value="<%= data.uso%>"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Tomador_idDocTomador" placeholder="ID Tomador" value="<%= data.Tomador_idDocTomador%>"
+                                class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">
+                            Actualizar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/_footer') %>

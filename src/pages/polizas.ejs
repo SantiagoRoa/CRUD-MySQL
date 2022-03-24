@@ -1,0 +1,113 @@
+<%- include('partials/_header') %>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Ciudad
+                        </th>
+                        <th>
+                            Cobertura
+                        </th>
+                        <th>
+                            Valor Asegurado
+                        </th>
+                        <th>
+                            ID Vehículo
+                        </th>
+                        <th>
+                            ID Tomador
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data) {
+                        for (var i=0; i < data.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= (i+1) %>
+                        </td>
+                        <td>
+                            <%= data[i].idPoliza%>
+                        </td>
+                        <td>
+                            <%= data[i].Ciudad%>
+                        </td>
+                        <td>
+                            <%= data[i].Cobertura%>
+                        </td>
+                        <td>
+                            <%= data[i].ValorAsegurado%>
+                        </td>
+                        <td>
+                            <%= data[i].Vehiculo_idVehiculo%>
+                        </td>
+                        <td>
+                            <%= data[i].Tomador_idDocTomador%>
+                        </td>
+                        <td>
+                            <a href="/delete-poliza/<%= data[i].idPoliza%>" class="btn btn-danger">
+                                Borrar
+                            </a>
+                            <a href="/update-poliza/<%= data[i].idPoliza%>" class="btn btn-warning">
+                                Actualizar
+                            </a>
+                        </td>
+                    </tr>
+                    <%  }
+                    } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/insert-poliza" method="post">
+                        <div class="form-group ">
+                            <input type="text" name="idPoliza" placeholder="ID" class="form-control">
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" name="Ciudad" placeholder="Ciudad" class="form-control">
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" name="Cobertura" placeholder="Cobertura" class="form-control">
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" name="ValorAsegurado" placeholder="Valor Asegurado" class="form-control">
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" name="Tomador_idDocTomador" placeholder="ID Tomador"
+                                class="form-control">
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" name="Vehiculo_idVehiculo" placeholder="ID Vehículo"
+                                class="form-control">
+                        </div>
+                        <div class="form-group d-none">
+                            <input type="text" name="Vehiculo_Tomador_idDocTomador" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">
+                            Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('partials/_footer') %>

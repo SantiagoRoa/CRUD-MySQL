@@ -1,0 +1,99 @@
+<%- include('partials/_header') %>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Nombres
+                        </th>
+                        <th>
+                            Tipo Documento
+                        </th>
+                        <th>
+                            Dirección
+                        </th>
+                        <th>
+                            Correo
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data) {
+                        for (var i=0; i < data.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= (i+1) %>
+                        </td>
+                        <td>
+                            <%= data[i].idDocTomador%>
+                        </td>
+                        <td>
+                            <%= data[i].Nombres%>
+                        </td>
+                        <td>
+                            <%= data[i].TipoDoc%>
+                        </td>
+                        <td>
+                            <%= data[i].Direccion%>
+                        </td>
+                        <td>
+                            <%= data[i].Correo%>
+                        </td>
+                        <td>
+                            <a href="/delete-tomador/<%= data[i].idDocTomador%>" class="btn btn-danger">
+                                Borrar
+                            </a>
+                            <a href="/update-tomador/<%= data[i].idDocTomador%>" class="btn btn-warning">
+                                Actualizar
+                            </a>
+                        </td>
+                    </tr>
+                    <%  }
+                    } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/insert-tomador" method="post">
+                        <div class="form-group ">
+                            <input type="text" name="idDocTomador" value="" placeholder="ID" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Nombres" value="" placeholder="Nombres" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="TipoDoc" value="" placeholder="Tipo Documento" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Direccion" value="" placeholder="Dirección" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Correo" value="" placeholder="Correo" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">
+                            Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('partials/_footer') %>
