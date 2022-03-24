@@ -14,6 +14,15 @@ en modelo relacional trabajado en clase.
 2. Importar Base de Datos en MySQL WorkBench e inicializar servidor
 3. Actualizar conexión a BD en src/App.js
 
+### Instrucciones Modelo Relacional
+Para seguir las reglas del modelo relacional, se sugiere insertar registros en las tablas en el siguiente orden.
+1. Persona
+2. Tipo Contacto
+3. Contacto
+4. Tomador
+5. Vehículo
+6. Pólizas
+
 ### Comandos NODE
 - node app.js
 - npm run dev
